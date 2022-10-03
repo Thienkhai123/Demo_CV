@@ -1,6 +1,5 @@
-import logo from './logo.svg'
 import './App.css'
-import ProfilePage from './Pages/ProfilePage/ProfilePage'
+import ProfilePage from './Pages/ProfilePage/Index.js'
 
 function App() {
 	return <ProfilePage />
