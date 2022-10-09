@@ -8,22 +8,18 @@ import Home from './Container/Home/Home'
 import Resume from './Container/Resume/Resume'
 import Services from './Container/Services/Services'
 import Work from './Container/Work/Work'
-import { ProfileService } from '../../Services/ProfileService'
-import useLoading from '../../hook/useLoading'
+import useLoading from '../../hook/useLoading/useLoading'
 import Loader from '../Components/Loader/Loader'
+import { useStore } from '../../hook/useStore/useStore'
+import { actions } from '../../Store'
 
 const ProfilePage = () => {
-	const [dataContainer, setData] = useState({})
-
-	const fechData = async () => {
-		const response = await ProfileService()
-		setData(response)
-	}
-
-	const [fechapi, isFechApi] = useLoading(fechData)
+	const [state, dispathch] = useStore()
+	const { data } = state
+	const [fechapi, isFechApi] = useLoading()
 
 	useEffect(() => {
-		fechapi()
+		dispathch(actions.fechApi())
 	}, [])
 
 	const {
@@ -39,7 +35,7 @@ const ProfilePage = () => {
 		education,
 		experiences,
 		Skiill,
-	} = dataContainer
+	} = data
 
 	const homeData = {
 		name: name,

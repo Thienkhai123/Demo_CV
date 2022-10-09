@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 
 const Services = (props) => {
 	const { workExperience } = props
+
 	const servicesData = {
 		title: 'DỰ ÁN THỰ THI',
 	}
@@ -46,6 +47,7 @@ const Services = (props) => {
 }
 
 export default Services
+
 Services.propTypes = {
 	workExperience: PropTypes.oneOfType([
 		PropTypes.shape({
