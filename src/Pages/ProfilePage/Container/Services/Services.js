@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import Card from './Components/Card/Card'
 import PropTypes from 'prop-types'
+import { selectWorkExperience } from '../../../../Store/ProfileSlice/profileSlice'
+import { useSelector } from 'react-redux'
 
 const Services = (props) => {
-	const { workExperience } = props
+	const workExperience = useSelector(selectWorkExperience)
 
 	const servicesData = {
 		title: 'DỰ ÁN THỰ THI',

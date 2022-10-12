@@ -1,9 +1,11 @@
 import React from 'react'
 import CounterWork from './Components/CounterWork/CounterWork'
 import PropTypes from 'prop-types'
+import { useSelector } from 'react-redux'
+import { selectSkiill } from '../../../../Store/ProfileSlice/profileSlice'
 
 const Work = (props) => {
-	const { Skiill } = props
+	const Skiill = useSelector(selectSkiill)
 	return (
 		<div>
 			<section id='portfolios' className='section-padding'>

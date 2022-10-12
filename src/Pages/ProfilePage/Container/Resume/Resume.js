@@ -2,10 +2,12 @@ import React from 'react'
 import Content from './Components/Contents/Content'
 import IconEduca from './Components/IconEduca/IconEduca'
 import PropTypes from 'prop-types'
+import { useSelector } from 'react-redux'
+import { selectResume } from '../../../../Store/ProfileSlice/profileSlice'
 
 const Resume = (props) => {
-	const { resumeData } = props
-	const { education, experiences } = resumeData
+	const data = useSelector(selectResume)
+	const { education, experiences } = data
 
 	const educationData = {
 		icon: <i className='icon-graduation'></i>,

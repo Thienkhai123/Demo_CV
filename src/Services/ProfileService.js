@@ -1,12 +1,8 @@
 import { DataProfile } from '../Json/DataProfile.js'
 
 const ProfileService = () => {
-	try {
-		const respones = DataProfile
-		return respones
-	} catch (error) {
-		alert('lỗi Service')
-	}
+	const respones = DataProfile
+	return respones
 }
 
 export { ProfileService }

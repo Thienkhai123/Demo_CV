@@ -3,6 +3,8 @@ import ButtonBlue from '../../Components/ButtonBlue/ButtonBlue'
 import Content from './Components/Contents/Content'
 import IconContent from './Components/IconsContents/IconContent'
 import PropTypes from 'prop-types'
+import { useSelector } from 'react-redux'
+import { selectHome } from '../../../../Store/ProfileSlice/profileSlice'
 
 const ICON_LIST = [
 	{
@@ -33,7 +35,7 @@ const ICON_LIST = [
 ]
 
 const Home = (props) => {
-	const { data } = props
+	const data = useSelector(selectHome)
 	const homeData = {
 		title: 'LÝ LỊCH',
 		titleSubmit: 'Bắt đầu',

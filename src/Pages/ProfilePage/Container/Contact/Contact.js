@@ -3,8 +3,10 @@ import ContactAdress from './Components/ContactAddress/ContactAdress'
 import ContactForm from './Components/ContactFrom/ContactForm'
 import Map from './Components/Map/Map'
 import PropTypes from 'prop-types'
+import { useSelector } from 'react-redux'
+import { selectAddressContact } from '../../../../Store/ProfileSlice/profileSlice'
 const Contact = (props) => {
-	const { addressContact } = props
+	const addressContact = useSelector(selectAddressContact)
 	const { address, email, phone } = addressContact
 	return (
 		<div>
@@ -47,7 +49,6 @@ Contact.propTypes = {
 		address: PropTypes.string,
 		email: PropTypes.string,
 		phone: PropTypes.string,
-		instagram: PropTypes.string,
 	}),
 }
 
@@ -56,6 +57,5 @@ Contact.defaultProps = {
 		address: 'Phạm hùng, Phường 9, Quận 8, TP.HCM',
 		email: 'khai.nguyen@saigonmio.com',
 		phone: '3078527288',
-		instagram: 'instagram.com',
 	},
 }

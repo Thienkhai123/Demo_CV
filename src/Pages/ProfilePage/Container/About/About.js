@@ -6,6 +6,8 @@ import TitleText from '../../Components/TitleText/TitleText'
 import AboutProfile from './Components/AboutProfile/AboutProfile'
 import Avatar from './Components/Avatar/Avatar'
 import PropTypes from 'prop-types'
+import { useSelector } from 'react-redux'
+import { selectAbout } from '../../../../Store/ProfileSlice/profileSlice'
 
 const ICON_LIST = {
 	blueButton: {
@@ -19,7 +21,7 @@ const ICON_LIST = {
 }
 
 const About = (props) => {
-	const { data } = props
+	const data = useSelector(selectAbout)
 	const { name, age, experience, country, addressContact } = data
 	const aboutData = {
 		avatar: data.avatar || 'assets/img/about/about-1.jpg',

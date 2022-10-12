@@ -10,86 +10,48 @@ import Services from './Container/Services/Services'
 import Work from './Container/Work/Work'
 import useLoading from '../../hook/useLoading/useLoading'
 import Loader from '../Components/Loader/Loader'
-import { useStore } from '../../hook/useStore/useStore'
-import { actions } from '../../Store'
+import { useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
+import { getProfile } from '../../Store/ProfileSlice/profileSlice'
 
 const ProfilePage = () => {
-	const [state, dispathch] = useStore()
-	const { data } = state
-	const [fechapi, isFechApi] = useLoading()
+	const dispatch = useDispatch()
 
 	useEffect(() => {
-		dispathch(actions.fechApi())
-	}, [])
-
-	const {
-		avatar,
-		country,
-		name,
-		field,
-		information,
-		age,
-		experience,
-		addressContact,
-		workExperience,
-		education,
-		experiences,
-		Skiill,
-	} = data
-
-	const homeData = {
-		name: name,
-		field: field,
-	}
-	const aboutData = {
-		avatar: avatar,
-		information: information,
-		name: name,
-		age: age,
-		experience: experience,
-		country: country,
-		addressContact: addressContact,
-	}
-	const resumeData = {
-		education: education,
-		experiences: experiences,
-	}
+		dispatch(getProfile())
+	}, [dispatch])
 
 	return (
 		<div>
-			{isFechApi ? (
-				<Loader />
-			) : (
+			<div>
 				<div>
-					<div>
-						<Header />
-					</div>
-					<div>
-						<Home data={homeData} />
-					</div>
-					<div>
-						<About data={aboutData} />
-					</div>
-					<div>
-						<Services workExperience={workExperience} />
-					</div>
-					<div>
-						<Resume resumeData={resumeData} />
-					</div>
-					<div>
-						<Work Skiill={Skiill} />
-					</div>
-					<div>
-						<Contact addressContact={addressContact} />
-					</div>
-					<div>
-						<Footer />
-					</div>
-					<div>
-						<ScrollButton />
-					</div>
+					<Header />
 				</div>
-			)}
+				<div>
+					<Home />
+				</div>
+				<div>
+					<About />
+				</div>
+				<div>
+					<Services />
+				</div>
+				<div>
+					<Resume />
+				</div>
+				<div>
+					<Work />
+				</div>
+				<div>
+					<Contact />
+				</div>
+				<div>
+					<Footer />
+				</div>
+				<div>
+					<ScrollButton />
+				</div>
+			</div>
 		</div>
 	)
 }

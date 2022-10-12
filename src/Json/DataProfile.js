@@ -1,5 +1,5 @@
 export const DataProfile = {
-	// avatar: 'https://s3.ap-southeast-1.amazonaws.com/truyentruyen.vn/images/book/8218/book.jpg?v=1',
+	avatar: 'https://s3.ap-southeast-1.amazonaws.com/truyentruyen.vn/images/book/8218/book.jpg?v=1',
 	name: 'NGUYỄN HOÀNG THIÊN KHẢI',
 	nominee: 'DEVELOPER',
 	field: 'Front-end Web Developer and Graphic Designer',
