@@ -1,11 +1,12 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import { ProfileService } from '../../Services/ProfileService'
+import { TYPES } from '../type'
 
 const initialState = {
 	profile: {},
 }
 
-export const getProfile = createAsyncThunk('profile', async () => {
+export const getProfile = createAsyncThunk(TYPES.PROFILE.DETAIL, async () => {
 	try {
 		const response = ProfileService()
 		return response
