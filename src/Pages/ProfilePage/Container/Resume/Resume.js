@@ -4,18 +4,21 @@ import IconEduca from './Components/IconEduca/IconEduca'
 import PropTypes from 'prop-types'
 import { useSelector } from 'react-redux'
 import { selectResume } from '../../../../Store/ProfileSlice/profileSlice'
+import { useTranslation } from 'react-i18next'
 
 const Resume = (props) => {
 	const data = useSelector(selectResume)
+	const { t } = useTranslation('translation', { keyPrefix: 'resume' })
+
 	const { education, experiences } = data
 
 	const educationData = {
-		icon: <i className='icon-graduation'></i>,
+		icon: 'icon-graduation',
 		title: 'HỌC VẤN',
 	}
 
 	const experienceData = {
-		icon: <i className='icon-briefcase'></i>,
+		icon: 'icon-briefcase',
 		title: 'KINH NGHIỆM',
 	}
 
@@ -31,22 +34,20 @@ const Resume = (props) => {
 								<ul className='timeline'>
 									<IconEduca
 										icon={educationData.icon}
-										title={educationData.title}
+										title={t('education')}
 									/>
 									{education?.map((item, index) => {
 										const {
 											schoolName,
 											startTime,
-											SchoollearnKills,
+											learnedSkills,
 										} = item
 										return (
 											<li key={index}>
 												<Content
 													title={schoolName}
 													timedate={startTime}
-													description={
-														SchoollearnKills
-													}
+													description={learnedSkills}
 												/>
 											</li>
 										)
@@ -61,22 +62,20 @@ const Resume = (props) => {
 								<ul className='timeline'>
 									<IconEduca
 										icon={experienceData.icon}
-										title={experienceData.title}
+										title={t('experience')}
 									/>
 									{experiences?.map((item, index) => {
 										const {
 											experiencefield,
 											startTime,
-											SchoollearnKills,
+											learnedSkills,
 										} = item
 										return (
 											<li key={index}>
 												<Content
 													title={experiencefield}
 													timedate={startTime}
-													description={
-														SchoollearnKills
-													}
+													description={learnedSkills}
 												/>
 											</li>
 										)
@@ -95,7 +94,7 @@ export default Resume
 
 Resume.propTypes = {
 	resumeData: PropTypes.shape({
-		education: PropTypes.oneOfType([
+		education: PropTypes.arrayOf(
 			PropTypes.shape({
 				schoolName: PropTypes.string,
 				Schoolfield: PropTypes.string,
@@ -104,8 +103,8 @@ Resume.propTypes = {
 				SchoolthesisTitle: PropTypes.string,
 				SchoollearnKills: PropTypes.string,
 			}),
-		]),
-		experiences: PropTypes.oneOfType([
+		),
+		experiences: PropTypes.arrayOf(
 			PropTypes.shape({
 				experienceName: PropTypes.string,
 				experiencefield: PropTypes.string,
@@ -113,7 +112,7 @@ Resume.propTypes = {
 				endTime: PropTypes.string,
 				SchoollearnKills: PropTypes.string,
 			}),
-		]),
+		),
 	}),
 }
 

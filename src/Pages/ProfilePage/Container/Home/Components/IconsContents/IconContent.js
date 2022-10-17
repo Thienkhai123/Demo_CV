@@ -2,7 +2,7 @@ import React from 'react'
 
 const IconContent = (props) => {
 	const {
-		icon = <i className='icon-social-facebook'></i>,
+		icon = 'icon-social-facebook',
 		refH = '#',
 		className = 'facebook',
 	} = props
@@ -10,7 +10,7 @@ const IconContent = (props) => {
 	return (
 		<li>
 			<a className={className} href={refH}>
-				{icon}
+				<i className={icon}></i>
 			</a>
 		</li>
 	)

@@ -1,5 +1,6 @@
 export const TYPES = {
 	PROFILE: {
 		DETAIL: 'PROFILE/DETAIL',
+		SEND_EMAIL: 'PROFILE/SEND',
 	},
 }

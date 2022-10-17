@@ -5,37 +5,16 @@ import IconContent from './Components/IconsContents/IconContent'
 import PropTypes from 'prop-types'
 import { useSelector } from 'react-redux'
 import { selectHome } from '../../../../Store/ProfileSlice/profileSlice'
-
-const ICON_LIST = [
-	{
-		icon: <i className='icon-social-facebook'></i>,
-		refH: '#',
-		className: 'facebook',
-	},
-	{
-		icon: <i className='icon-social-twitter'></i>,
-		refH: '#',
-		className: 'twitter',
-	},
-	{
-		icon: <i className='icon-social-instagram'></i>,
-		refH: '#',
-		className: 'instagram',
-	},
-	{
-		icon: <i className='icon-social-linkedin'></i>,
-		refH: '#',
-		className: 'linkedin',
-	},
-	{
-		icon: <i className='icon-social-google'></i>,
-		refH: '#',
-		className: 'google',
-	},
-]
+import { ICON_LIST } from './Contant'
+import { selectLoading } from '../../../../Store/LoadingSlice/loadingSlice'
+import { TYPES } from '../../../../Store/type'
+import Loader from '../../../Components/Loader/Loader'
+import { useTranslation } from 'react-i18next'
 
 const Home = (props) => {
 	const data = useSelector(selectHome)
+	const { t, i18n } = useTranslation('translation', { keyPrefix: 'home' })
+
 	const homeData = {
 		title: 'LÝ LỊCH',
 		titleSubmit: 'Bắt đầu',
@@ -74,7 +53,7 @@ const Home = (props) => {
 								<div
 									className='header-button wow fadeInUp'
 									data-wow-delay='1s'>
-									<ButtonBlue title={titleSubmit} />
+									<ButtonBlue title={t('start')} />
 								</div>
 							</div>
 						</div>
@@ -86,6 +65,7 @@ const Home = (props) => {
 }
 
 export default Home
+
 Home.propTypes = {
 	data: PropTypes.shape({
 		name: PropTypes.string,

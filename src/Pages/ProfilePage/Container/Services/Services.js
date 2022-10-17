@@ -3,9 +3,11 @@ import Card from './Components/Card/Card'
 import PropTypes from 'prop-types'
 import { selectWorkExperience } from '../../../../Store/ProfileSlice/profileSlice'
 import { useSelector } from 'react-redux'
+import { useTranslation } from 'react-i18next'
 
 const Services = (props) => {
 	const workExperience = useSelector(selectWorkExperience)
+	const { t } = useTranslation('translation', { keyPrefix: 'service' })
 
 	const servicesData = {
 		title: 'DỰ ÁN THỰ THI',
@@ -16,7 +18,7 @@ const Services = (props) => {
 		<div>
 			<section id='services' className='services section-padding'>
 				<h2 className='section-title wow flipInX' data-wow-delay='0.4s'>
-					{title || ''}
+					{t('ExperienceProject')}
 				</h2>
 				<div className='container'>
 					<div className='row'>
@@ -24,8 +26,8 @@ const Services = (props) => {
 							const {
 								icon,
 								href,
-								ProjectPosition,
-								ProjectTitle,
+								projectPosition,
+								projectTitle,
 							} = item
 							return (
 								<div
@@ -35,8 +37,8 @@ const Services = (props) => {
 										delay='0.3s'
 										icon={icon}
 										href={href}
-										title={ProjectPosition}
-										description={ProjectTitle}
+										title={projectPosition}
+										description={projectTitle}
 									/>
 								</div>
 							)
@@ -51,7 +53,7 @@ const Services = (props) => {
 export default Services
 
 Services.propTypes = {
-	workExperience: PropTypes.oneOfType([
+	workExperience: PropTypes.arrayOf(
 		PropTypes.shape({
 			ProjectName: PropTypes.string,
 			ProjectPosition: PropTypes.string,
@@ -61,7 +63,7 @@ Services.propTypes = {
 			href: PropTypes.string,
 			ProjectTitle: PropTypes.string,
 		}),
-	]),
+	),
 }
 
 Services.defaultProps = {
@@ -71,7 +73,7 @@ Services.defaultProps = {
 			ProjectPosition: 'FRONT-END DEVELOPMENT',
 			startTime: '04-2022',
 			endTime: '06-2022',
-			icon: <i className='icon-grid'></i>,
+			icon: 'icon-grid',
 			href: '#',
 			ProjectTitle:
 				'Dự án quản lý mua bán khóa học. Ngoài ra, website còn hỗ trợ cho việc học thảo luận trao đổi cùng nhau.',
@@ -81,7 +83,7 @@ Services.defaultProps = {
 			ProjectPosition: 'FRONT-END DEVELOPMENT',
 			startTime: '08-2022',
 			endTime: '09-2022',
-			icon: <i className='icon-layers'></i>,
+			icon: 'icon-layers',
 			href: '#',
 			ProjectTitle:
 				'Dự án quản lý mua bán Coin, thực hiện quản lý các câu hỏi trong game.',
@@ -91,7 +93,7 @@ Services.defaultProps = {
 			ProjectPosition: 'GRAPHIC DESIGN ',
 			startTime: '04-2021',
 			endTime: '09-2021',
-			icon: <i className='icon-briefcase'></i>,
+			icon: 'icon-briefcase',
 			href: '#',
 			ProjectTitle:
 				'Quản lý và thiết kế ảnh trước khi hoàn thành cho khách hàng',
@@ -101,7 +103,7 @@ Services.defaultProps = {
 			ProjectPosition: 'SALE',
 			startTime: '04-2021',
 			endTime: '09-2021',
-			icon: <i className='icon-bubbles'></i>,
+			icon: 'icon-bubbles',
 			href: '#',
 			ProjectTitle:
 				'Tìm kiếm khách hàng, giới thiệu cho khách hàng về những thông tin cần thiết',

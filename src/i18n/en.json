@@ -1,0 +1,22 @@
+{
+  "SUCCESS_MESSAGE": {},
+  "ERROR_MESSAGE": {
+    "YOU_ARE_NOT_AUTHORIZED": "You are not authorized",
+    "YOU_DO_NOT_HAVE_PERMISSION": "You do not have permission",
+    "404": "Page not found",
+    "LOGIN_EMAIL_NOT_VERIFIED": "Your email address is not verified yet",
+    "UPDATE_ERROR": "Update error",
+    "DELETE_ERROR": "Delete error"
+  },
+  "FORM_ERROR": {
+    "REQUIRED_FIELD": "This field is required",
+    "INVALID_FIELD_EMAIL": "Invalid email, please check again",
+    "INVALID_FIELD_PHONE": "Invalid phone number, please check again",
+    "INVALID_AMOUNT": "Invalid amount, please check again",
+    "INVALID_FORMAT": "Invalid format",
+    "INVALID_ZIP_CODE": "Invalid postal code, please check again",
+    "INVALID_FIELD": "This field is invalid"
+  },
+  "COMMONS": {},
+  "PLACEHOLDERS": {}
+}

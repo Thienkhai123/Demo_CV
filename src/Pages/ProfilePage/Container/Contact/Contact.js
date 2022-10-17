@@ -3,9 +3,17 @@ import ContactAdress from './Components/ContactAddress/ContactAdress'
 import ContactForm from './Components/ContactFrom/ContactForm'
 import Map from './Components/Map/Map'
 import PropTypes from 'prop-types'
-import { useSelector } from 'react-redux'
-import { selectAddressContact } from '../../../../Store/ProfileSlice/profileSlice'
+import { useDispatch, useSelector } from 'react-redux'
+
+import {
+	selectAddressContact,
+	sendEmail,
+} from '../../../../Store/ProfileSlice/profileSlice'
+import { useTranslation } from 'react-i18next'
+
 const Contact = (props) => {
+	const { t } = useTranslation('translation', { keyPrefix: 'contact' })
+	const { onSubmit } = props
 	const addressContact = useSelector(selectAddressContact)
 	const { address, email, phone } = addressContact
 	return (
@@ -18,13 +26,13 @@ const Contact = (props) => {
 							data-wow-delay='0.4s'>
 							<div className='col-md-6 col-lg-6 col-sm-12'>
 								<div className='contact-block'>
-									<h2>Liên hệ</h2>
-									<ContactForm />
+									<h2>{t('contactMail')}</h2>
+									<ContactForm onSubmit={onSubmit} />
 								</div>
 							</div>
 							<div className='col-md-6 col-lg-6 col-sm-12'>
 								<div className='footer-right-area wow fadeIn'>
-									<h2>Địa chỉ liên hệ</h2>
+									<h2>{t('contactAddress')}</h2>
 									<ContactAdress
 										location={address}
 										gmail={email}

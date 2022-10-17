@@ -1,6 +1,7 @@
 import React from 'react'
 
-const Footer = () => {
+const Footer = (props) => {
+	const { titleFooter = 'Copyright © 2018 UIdeck All Right Reserved' } = props
 	return (
 		<div>
 			{' '}
@@ -38,9 +39,7 @@ const Footer = () => {
 										</a>
 									</li>
 								</ul>
-								<p>
-									Copyright © 2018 UIdeck All Right Reserved
-								</p>
+								<p>{titleFooter}</p>
 							</div>
 						</div>
 					</div>

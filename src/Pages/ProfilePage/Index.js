@@ -10,16 +10,61 @@ import Services from './Container/Services/Services'
 import Work from './Container/Work/Work'
 import useLoading from '../../hook/useLoading/useLoading'
 import Loader from '../Components/Loader/Loader'
-import { useDispatch } from 'react-redux'
-import { useSelector } from 'react-redux'
-import { getProfile } from '../../Store/ProfileSlice/profileSlice'
+import { useDispatch, useSelector } from 'react-redux'
+import {
+	clearProfile,
+	getProfile,
+	sendEmail,
+} from '../../Store/ProfileSlice/profileSlice'
+import { unwrapResult } from '@reduxjs/toolkit'
+import { toast } from 'react-toastify'
+import { selectLoading } from '../../Store/LoadingSlice/loadingSlice'
+import { TYPES } from '../../Store/type'
 
 const ProfilePage = () => {
 	const dispatch = useDispatch()
 
+	const onSubmit = async (data) => {
+		const payload = {
+			companyName: data.companyName,
+			name: data.name,
+			email: data.email,
+			subject: data.subject,
+			message: data.message,
+		}
+		const fetchSendEmail = await dispatch(sendEmail(payload))
+		if (fetchSendEmail.meta.requestStatus === 'fulfilled') {
+			toast.success('Thực hiện thành công', {
+				toastId: 'get-quest-unauth',
+				position: 'top-right',
+				autoClose: 3000,
+				hideProgressBar: false,
+				closeOnClick: true,
+				pauseOnHover: true,
+				draggable: true,
+				progress: undefined,
+			})
+		} else {
+			toast.error('Thực hiện thất bại', {
+				toastId: 'get-quest-unauth',
+				position: 'top-right',
+				autoClose: 3000,
+				hideProgressBar: false,
+				closeOnClick: true,
+				pauseOnHover: true,
+				draggable: true,
+				progress: undefined,
+			})
+		}
+	}
+
+	const loading = useSelector((state) => state.data.loading)
+
 	useEffect(() => {
 		dispatch(getProfile())
 	}, [dispatch])
+
+	if (loading === true) return <Loader />
 
 	return (
 		<div>
@@ -43,7 +88,7 @@ const ProfilePage = () => {
 					<Work />
 				</div>
 				<div>
-					<Contact />
+					<Contact onSubmit={onSubmit} />
 				</div>
 				<div>
 					<Footer />

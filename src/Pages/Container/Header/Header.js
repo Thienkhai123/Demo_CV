@@ -1,6 +1,29 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next'
+import { Link } from 'react-router-dom'
 
-const Header = () => {
+const Header = (props) => {
+	const {
+		Home = 'Home',
+		About = 'About',
+		Services = 'Services',
+		Resume = 'Resume',
+		Work = 'Work',
+		Contact = 'Contact',
+	} = props
+
+	const { t, i18n } = useTranslation('translation', { keyPrefix: 'header' })
+
+	const switchLanguage = (lang) => {
+		if (lang === 'vi') {
+			i18n.changeLanguage(lang)
+			localStorage.setItem('language', 'vi')
+		} else {
+			i18n.changeLanguage(lang)
+			localStorage.setItem('language', 'en')
+		}
+	}
+
 	return (
 		<div>
 			<header id='header-wrap'>
@@ -20,7 +43,7 @@ const Header = () => {
 								<span className='icon-menu'></span>
 								<span className='icon-menu'></span>
 							</button>
-							<a href='index.html' className='navbar-brand'>
+							<a href='/' className='navbar-brand'>
 								<img src='assets/img/logo.png' alt='' />
 							</a>
 						</div>
@@ -30,56 +53,66 @@ const Header = () => {
 							<ul className='onepage-nev navbar-nav mr-auto w-100 justify-content-end clearfix'>
 								<li className='nav-item active'>
 									<a className='nav-link' href='#hero-area'>
-										Home
+										{t('Home')}
 									</a>
 								</li>
 								<li className='nav-item'>
 									<a className='nav-link' href='#about'>
-										About
+										{t('About')}
 									</a>
 								</li>
 								<li className='nav-item'>
 									<a className='nav-link' href='#services'>
-										Services
+										{t('Services')}
 									</a>
 								</li>
 								<li className='nav-item'>
 									<a className='nav-link' href='#resume'>
-										Resume
+										{t('Resume')}
 									</a>
 								</li>
 								<li className='nav-item'>
 									<a className='nav-link' href='#portfolios'>
-										Work
+										{t('Work')}
 									</a>
 								</li>
 								<li className='nav-item'>
 									<a className='nav-link' href='#contact'>
-										Contact
+										{t('Contact')}
 									</a>
 								</li>
 							</ul>
+
+							<select
+								value={i18n.language}
+								className=''
+								onChange={(e) =>
+									switchLanguage(e.target.value)
+								}>
+								<option value='vi'>🇻🇳</option>
+								<option value='en'>🇬🇧</option>
+							</select>
 						</div>
 					</div>
 
 					<ul className='onepage-nev mobile-menu'>
 						<li>
-							<a href='#home'>Home</a>
+							<a href='#home'>{t('Home')}</a>
 						</li>
 						<li>
-							<a href='#about'>about</a>
+							<a href='#about'>{t('About')}</a>
 						</li>
 						<li>
-							<a href='#services'>Services</a>
+							<a href='#services'>{t('Services')}</a>
 						</li>
 						<li>
-							<a href='#resume'>resume</a>
+							<a href='#resume'>{t('Resume')}</a>
 						</li>
 						<li>
-							<a href='#portfolio'>Work</a>
+							<a href='#portfolio'>{t('Work')}</a>
 						</li>
 						<li>
-							<a href='#contact'>Contact</a>
+							<a href='#contact'>{t('Contact')}</a>
 						</li>
 					</ul>
 				</nav>

@@ -5,12 +5,23 @@ import App from './App'
 import reportWebVitals from './reportWebVitals'
 import store from './Store'
 import { Provider } from 'react-redux'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+import i18n from 'i18next'
+import { initReactI18next } from 'react-i18next'
+import { MyTranslate } from './translation/i18'
+
+const LANGUAGE = localStorage.getItem('language')
+
+i18n.use(initReactI18next) // passes i18n down to react-i18next
+	.init(MyTranslate(LANGUAGE || 'vi'))
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
 	<React.StrictMode>
 		<Provider store={store}>
 			<App />
+			<ToastContainer />
 		</Provider>
 	</React.StrictMode>,
 )

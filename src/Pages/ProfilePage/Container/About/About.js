@@ -8,51 +8,43 @@ import Avatar from './Components/Avatar/Avatar'
 import PropTypes from 'prop-types'
 import { useSelector } from 'react-redux'
 import { selectAbout } from '../../../../Store/ProfileSlice/profileSlice'
-
-const ICON_LIST = {
-	blueButton: {
-		icon: <i className='icon-paper-clip'></i>,
-		title: 'Tải tập tin',
-	},
-	redButton: {
-		icon: <i className='icon-speech'></i>,
-		title: 'Liên hệ tôi',
-	},
-}
+import { ICON_LIST } from './Contant'
+import { useTranslation } from 'react-i18next'
 
 const About = (props) => {
 	const data = useSelector(selectAbout)
+	const { t } = useTranslation('translation', { keyPrefix: 'about' })
 	const { name, age, experience, country, addressContact } = data
 	const aboutData = {
 		avatar: data.avatar || 'assets/img/about/about-1.jpg',
 		description: data.information || '',
 		detail: [
 			{
-				title: 'Name',
+				title: t('name'),
 				textDetail: name || '',
 			},
 			{
-				title: 'Age',
+				title: t('Age'),
 				textDetail: age || '',
 			},
 			{
-				title: 'Experience',
+				title: t('Experience'),
 				textDetail: experience || '',
 			},
 			{
-				title: 'Country',
+				title: t('Country'),
 				textDetail: country || 'VN',
 			},
 			{
-				title: 'Location',
+				title: t('Location'),
 				textDetail: addressContact?.address || '',
 			},
 			{
-				title: 'E-mail',
+				title: t('Mail'),
 				textDetail: addressContact?.email || '',
 			},
 			{
-				title: 'Phone',
+				title: t('Phone'),
 				textDetail: addressContact?.phone || '',
 			},
 		],
@@ -89,11 +81,11 @@ const About = (props) => {
 								</div>
 								<ButtonBlue
 									icon={ICON_LIST?.blueButton?.icon}
-									title={ICON_LIST?.blueButton?.title}
+									title={t('dowload')}
 								/>
 								<ButtonRed
 									icon={ICON_LIST?.redButton?.icon}
-									title={ICON_LIST?.redButton?.title}
+									title={t('contact')}
 								/>
 							</div>
 						</div>

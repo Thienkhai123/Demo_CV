@@ -16,43 +16,43 @@ export const DataProfile = {
 	},
 	workExperience: [
 		{
-			ProjectName: 'HTP',
-			ProjectPosition: 'FRONT-END DEVELOPMENT',
+			projectName: 'HTP',
+			projectPosition: 'FRONT-END DEVELOPMENT',
 			startTime: '04-2022',
 			endTime: '06-2022',
-			icon: <i className='icon-grid'></i>,
+			icon: 'icon-grid',
 			href: '#',
-			ProjectTitle:
+			projectTitle:
 				'Dự án quản lý mua bán khóa học. Ngoài ra, website còn hỗ trợ cho việc học thảo luận trao đổi cùng nhau.',
 		},
 		{
-			ProjectName: 'IZI',
-			ProjectPosition: 'FRONT-END DEVELOPMENT',
+			projectName: 'IZI',
+			projectPosition: 'FRONT-END DEVELOPMENT',
 			startTime: '08-2022',
 			endTime: '09-2022',
-			icon: <i className='icon-layers'></i>,
+			icon: 'icon-layers',
 			href: '#',
-			ProjectTitle:
+			projectTitle:
 				'Dự án quản lý mua bán Coin, thực hiện quản lý các câu hỏi trong game.',
 		},
 		{
-			ProjectName: 'STUDIO',
-			ProjectPosition: 'GRAPHIC DESIGN ',
+			projectName: 'STUDIO',
+			projectPosition: 'GRAPHIC DESIGN ',
 			startTime: '04-2021',
 			endTime: '09-2021',
-			icon: <i className='icon-briefcase'></i>,
+			icon: 'icon-briefcase',
 			href: '#',
-			ProjectTitle:
+			projectTitle:
 				'Quản lý và thiết kế ảnh trước khi hoàn thành cho khách hàng',
 		},
 		{
-			ProjectName: 'STUDIO',
-			ProjectPosition: 'SALE',
+			projectName: 'STUDIO',
+			projectPosition: 'SALE',
 			startTime: '04-2021',
 			endTime: '09-2021',
-			icon: <i className='icon-bubbles'></i>,
+			icon: 'icon-bubbles',
 			href: '#',
-			ProjectTitle:
+			projectTitle:
 				'Tìm kiếm khách hàng, giới thiệu cho khách hàng về những thông tin cần thiết',
 		},
 	],
@@ -63,7 +63,7 @@ export const DataProfile = {
 			startTime: '08-2018',
 			endTime: '08-2022',
 			SchoolthesisTitle: 'PERFUME BUSINESS WEBSITE',
-			SchoollearnKills:
+			learnedSkills:
 				'The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.',
 		},
 		{
@@ -72,7 +72,7 @@ export const DataProfile = {
 			startTime: '08-2018',
 			endTime: '08-2022',
 			SchoolthesisTitle: 'PERFUME BUSINESS WEBSITE',
-			SchoollearnKills:
+			learnedSkills:
 				'The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.',
 		},
 	],
@@ -82,7 +82,7 @@ export const DataProfile = {
 			experiencefield: 'FRONT-END WEBSITE DEVELOMENT',
 			startTime: '06-2022',
 			endTime: '08-2022',
-			SchoollearnKills:
+			learnedSkills:
 				'The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.',
 		},
 		{
@@ -90,34 +90,34 @@ export const DataProfile = {
 			experiencefield: 'FRONT-END WEBSITE DEVELOMENT',
 			startTime: '08-2022',
 			endTime: '9-2022',
-			SchoollearnKills:
+			learnedSkills:
 				'The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.',
 		},
 	],
 
-	Skiill: [
+	skill: [
 		{
-			icon: <i className='icon-briefcase'></i>,
+			icon: 'icon-briefcase',
 			resune: 80,
-			Skilltitle: 'JAVASCRIPT',
+			skillTitle: 'JAVASCRIPT',
 		},
 		{
-			icon: <i className='icon-check'></i>,
+			icon: 'icon-check',
 			counter: '',
 			resune: 70,
-			Skilltitle: 'C#',
+			skillTitle: 'C#',
 		},
 		{
-			icon: <i className='icon-diamond'></i>,
+			icon: 'icon-diamond',
 			counter: '',
 			resune: 60,
-			Skilltitle: 'SQL',
+			skillTitle: 'SQL',
 		},
 		{
-			icon: <i className='icon-heart'></i>,
+			icon: 'icon-heart',
 			counter: '',
 			resune: 50,
-			Skilltitle: 'ENGLISH',
+			skillTitle: 'ENGLISH',
 		},
 	],
 }

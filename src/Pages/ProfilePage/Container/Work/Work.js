@@ -2,10 +2,13 @@ import React from 'react'
 import CounterWork from './Components/CounterWork/CounterWork'
 import PropTypes from 'prop-types'
 import { useSelector } from 'react-redux'
-import { selectSkiill } from '../../../../Store/ProfileSlice/profileSlice'
+import { selectSkill } from '../../../../Store/ProfileSlice/profileSlice'
+import { useTranslation } from 'react-i18next'
 
 const Work = (props) => {
-	const Skiill = useSelector(selectSkiill)
+	const skill = useSelector(selectSkill)
+	const { t } = useTranslation('translation', { keyPrefix: 'work' })
+
 	return (
 		<div>
 			<section id='portfolios' className='section-padding'>
@@ -13,7 +16,7 @@ const Work = (props) => {
 					<h2
 						className='section-title wow flipInX'
 						data-wow-delay='0.4s'>
-						DỰ ÁN NỔI BẬT
+						{t('OutstandingProject')}
 					</h2>
 				</div>
 			</section>
@@ -21,8 +24,8 @@ const Work = (props) => {
 			<section className='counter-section section-padding'>
 				<div className='container'>
 					<div className='row'>
-						{Skiill?.map((item, index) => {
-							const { icon, resune, Skilltitle } = item
+						{skill?.map((item, index) => {
+							const { icon, resune, skillTitle } = item
 							return (
 								<div
 									className='col-md-3 col-sm-6 work-counter-widget text-center'
@@ -30,7 +33,7 @@ const Work = (props) => {
 									<CounterWork
 										icon={icon}
 										counter={resune}
-										title={Skilltitle}
+										title={skillTitle}
 										delay='0.3s'
 									/>
 								</div>
@@ -46,36 +49,36 @@ const Work = (props) => {
 export default Work
 
 Work.propTypes = {
-	Skiill: PropTypes.oneOfType([
+	Skiill: PropTypes.arrayOf(
 		PropTypes.shape({
 			icon: PropTypes.string,
-			resune: PropTypes.string,
+			resune: PropTypes.number,
 			Skilltitle: PropTypes.string,
 		}),
-	]),
+	),
 }
 
 Work.defaultProps = {
 	Skiill: [
 		{
-			icon: <i className='icon-briefcase'></i>,
+			icon: 'icon-briefcase',
 			resune: 80,
 			Skilltitle: 'JAVASCRIPT',
 		},
 		{
-			icon: <i className='icon-check'></i>,
+			icon: 'icon-check',
 			counter: '',
 			resune: 70,
 			Skilltitle: 'C#',
 		},
 		{
-			icon: <i className='icon-diamond'></i>,
+			icon: 'icon-diamond',
 			counter: '',
 			resune: 60,
 			Skilltitle: 'SQL',
 		},
 		{
-			icon: <i className='icon-heart'></i>,
+			icon: 'icon-heart',
 			counter: '',
 			resune: 50,
 			Skilltitle: 'ENGLISH',
